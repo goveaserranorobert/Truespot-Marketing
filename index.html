@@ -912,23 +912,33 @@
     <main id="inicio" class="min-h-screen flex items-center px-6 pt-32 pb-16 md:px-10 relative overflow-hidden">
 
         <!-- Video de fondo único, en todas las pantallas.
-             preload="none": no descarga nada hasta que el navegador decide reproducirlo
-             (autoplay + muted lo dispara igual, sin bloquear el primer pintado). -->
+             Sin "autoplay" en el HTML a propósito: así el navegador no compite por
+             CPU/decodificación mientras pinta el título principal. Se arranca por JS
+             una vez la página ya cargó (ver script abajo) — el usuario no nota la
+             diferencia, pero libera el hilo principal para el primer pintado. -->
         <video
             id="video-fondo"
-            autoplay loop muted playsinline
+            loop muted playsinline
             preload="none"
             class="absolute inset-0 w-full h-full object-cover z-0"
             onerror="document.getElementById('video-error').classList.remove('hidden'); document.getElementById('animated-bg').classList.remove('hidden');">
             <source src="FONDO.mp4" type="video/mp4">
         </video>
         <script>
+            const videoFondo = document.getElementById('video-fondo');
+
             // Diagnóstico temporal: muestra en consola por qué falla el video
             // (quitar este bloque una vez confirmes que el video carga bien)
-            document.getElementById('video-fondo').addEventListener('error', (e) => {
+            videoFondo.addEventListener('error', (e) => {
                 const video = e.target;
                 console.error('Error de video. Código:', video.error?.code, 'Mensaje:', video.error?.message);
                 console.error('Códigos: 1=abortado 2=red 3=decodificación (códec no soportado) 4=formato/ruta no soportada');
+            });
+
+            // Arranca el video después de que la página termine de cargar,
+            // para no competir con el pintado inicial (mejora LCP y TBT).
+            window.addEventListener('load', () => {
+                videoFondo.play().catch(() => {});
             });
         </script>
 
