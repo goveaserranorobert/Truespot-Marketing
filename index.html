@@ -182,17 +182,20 @@
             stroke: var(--ts-purple-300);
             stroke-width: 2;
             stroke-dasharray: 6 8;
-            animation: flowDash 2.6s linear infinite;
+            animation: flowPulse2 2.6s ease-in-out infinite;
         }
-        @keyframes flowDash {
-            to { stroke-dashoffset: -140; }
+        @keyframes flowPulse2 {
+            0%, 100% { opacity: 0.45; }
+            50% { opacity: 1; }
         }
         .flow-dot {
+            transform-box: fill-box;
+            transform-origin: center;
             animation: flowPulse 2.4s ease-in-out infinite;
         }
         @keyframes flowPulse {
-            0%, 100% { r: 5; opacity: 0.55; }
-            50% { r: 7.5; opacity: 1; }
+            0%, 100% { transform: scale(1); opacity: 0.55; }
+            50% { transform: scale(1.5); opacity: 1; }
         }
         .flow-node {
             fill: #FFFFFF;
@@ -630,7 +633,11 @@
     <!-- Tipografías: Space Grotesk (display, carácter técnico), Inter (texto), IBM Plex Mono (etiquetas/código) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <!-- Carga asíncrona: no bloquea el primer pintado. El navegador descarga la
+         hoja de estilos en paralelo y la aplica cuando está lista, en vez de
+         detener el renderizado a esperarla (elimina ~860ms de render-blocking). -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet"></noscript>
 
     <!-- ============================================================
          SCHEMA JSON-LD (ProfessionalService + NAP)
