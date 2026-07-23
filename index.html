@@ -48,6 +48,14 @@
         button { font: inherit; color: inherit; background: none; border: none; padding: 0; cursor: pointer; }
         img, svg, video { display: block; max-width: 100%; }
 
+        /* Blindaje extra del menú móvil: oculto por defecto en pantallas
+           pequeñas pase lo que pase, visible únicamente cuando el botón
+           hamburguesa le quita la clase .hidden vía JavaScript. */
+        #mobile-menu.hidden { display: none !important; }
+        @media (min-width: 768px) {
+            #mobile-menu { display: none !important; }
+        }
+
         /* ============================================================
            UTILIDADES CSS ESTÁTICAS — reemplazo del motor Tailwind (JIT)
            Generadas a mano cubriendo únicamente las clases usadas en esta
@@ -903,14 +911,14 @@
     <main id="inicio" class="min-h-screen flex items-center px-6 pt-32 pb-16 md:px-10 relative overflow-hidden">
 
         <!-- Video de fondo. Debe estar en la misma carpeta que index.html, con este nombre exacto.
-             preload="metadata": no descarga el video completo antes de que el usuario vea la página
-             (autoplay+muted igual lo reproduce, pero sin bloquear el primer pintado).
+             preload="none": no descarga nada del video hasta que el navegador decide reproducirlo
+             (autoplay+muted lo dispara igual, pero sin bloquear el primer pintado).
              poster: imagen ligera que se ve mientras el video carga — sube un JPG/WEBP
              liviano (una captura del video) y llámalo fondo-poster.jpg junto a index.html. -->
         <video
             id="video-fondo"
             autoplay loop muted playsinline
-            preload="metadata"
+            preload="none"
             poster="fondo-poster.jpg"
             class="absolute inset-0 w-full h-full object-cover z-0"
             onerror="document.getElementById('video-error').classList.remove('hidden'); document.getElementById('animated-bg').classList.remove('hidden');">
