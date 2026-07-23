@@ -31,218 +31,6 @@
     <!-- Comentado hasta subir el favicon real a la carpeta /assets/ -->
     <!-- <link rel="icon" type="image/png" href="assets/favicon.png"> -->
 
-    <style id="tw-utilities">
-        /* ============================================================
-           RESET BASE (equivalente al "Preflight" de Tailwind)
-           Sin esto, los navegadores aplican sus estilos por defecto:
-           links azules subrayados, márgenes de títulos, viñetas de
-           listas, bordes de botones, etc. Esto lo neutraliza, igual
-           que hacía automáticamente el motor de Tailwind.
-           ============================================================ */
-        *, *::before, *::after { box-sizing: border-box; }
-        html { -webkit-text-size-adjust: 100%; }
-        body { margin: 0; }
-        h1, h2, h3, h4, h5, h6, p { margin: 0; font-size: inherit; font-weight: inherit; }
-        ul, ol { list-style: none; margin: 0; padding: 0; }
-        a { color: inherit; text-decoration: none; }
-        button { font: inherit; color: inherit; background: none; border: none; padding: 0; cursor: pointer; }
-        img, svg, video { display: block; max-width: 100%; }
-
-        /* Blindaje extra del menú móvil: oculto por defecto en pantallas
-           pequeñas pase lo que pase, visible únicamente cuando el botón
-           hamburguesa le quita la clase .hidden vía JavaScript. */
-        #mobile-menu.hidden { display: none !important; }
-        @media (min-width: 768px) {
-            #mobile-menu { display: none !important; }
-        }
-
-        /* ============================================================
-           UTILIDADES CSS ESTÁTICAS — reemplazo del motor Tailwind (JIT)
-           Generadas a mano cubriendo únicamente las clases usadas en esta
-           página. Elimina la ejecución de JS en tiempo de carga y la
-           advertencia de "no usar en producción" del CDN de Tailwind.
-           ============================================================ */
-        .hidden{display:none}
-        .flex{display:flex}
-        .inline-block{display:inline-block}
-        .grid{display:grid}
-        .flex-col{flex-direction:column}
-        .flex-wrap{flex-wrap:wrap}
-        .items-center{align-items:center}
-        .justify-between{justify-content:space-between}
-        .justify-center{justify-content:center}
-        .grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
-        .gap-1{gap:.25rem} .gap-3{gap:.75rem} .gap-4{gap:1rem} .gap-5{gap:1.25rem}
-        .gap-6{gap:1.5rem} .gap-10{gap:2.5rem} .gap-12{gap:3rem} .gap-14{gap:3.5rem}
-        .fixed{position:fixed} .absolute{position:absolute} .relative{position:relative}
-        .inset-0{inset:0} .inset-x-0{left:0;right:0}
-        .top-0{top:0} .top-full{top:100%}
-        .left-1\/2{left:50%}
-        .z-0{z-index:0} .z-10{z-index:10} .z-30{z-index:30} .z-40{z-index:40}
-        .z-a1{z-index:1} .z-a2{z-index:2} .z-a3{z-index:3}
-        .-translate-x-1\/2{transform:translateX(-50%)}
-        .translate-y-2{transform:translateY(.5rem)}
-        .invisible{visibility:hidden}
-        .opacity-0{opacity:0}
-        .group:hover .group-hover\:opacity-100{opacity:1}
-        .group:hover .group-hover\:visible{visibility:visible}
-        .group:hover .group-hover\:translate-y-0{transform:translateY(0)}
-        .group:hover .group-hover\:rotate-180{transform:rotate(180deg)}
-        .w-3{width:.75rem} .w-5{width:1.25rem} .w-8{width:2rem} .w-64{width:16rem} .w-full{width:100%}
-        .h-3{height:.75rem} .h-5{height:1.25rem} .h-8{height:2rem} .h-full{height:100%}
-        .min-h-screen{min-height:100vh} .max-h-screen{max-height:100vh}
-        .mb-4{margin-bottom:1rem} .mb-5{margin-bottom:1.25rem} .mb-6{margin-bottom:1.5rem}
-        .mb-8{margin-bottom:2rem} .mb-10{margin-bottom:2.5rem} .mb-12{margin-bottom:3rem} .mb-14{margin-bottom:3.5rem}
-        .mt-0\.5{margin-top:.125rem} .mt-2{margin-top:.5rem} .mt-3{margin-top:.75rem} .mt-10{margin-top:2.5rem}
-        .-mt-2{margin-top:-.5rem}
-        .mx-auto{margin-left:auto;margin-right:auto}
-        .p-2{padding:.5rem} .p-6{padding:1.5rem}
-        .px-4{padding-left:1rem;padding-right:1rem} .px-6{padding-left:1.5rem;padding-right:1.5rem}
-        .py-1\.5{padding-top:.375rem;padding-bottom:.375rem} .py-2{padding-top:.5rem;padding-bottom:.5rem}
-        .py-4{padding-top:1rem;padding-bottom:1rem} .py-20{padding-top:5rem;padding-bottom:5rem}
-        .pt-3{padding-top:.75rem} .pt-20{padding-top:5rem} .pt-32{padding-top:8rem}
-        .pb-8{padding-bottom:2rem} .pb-16{padding-bottom:4rem}
-        .text-xs{font-size:.75rem;line-height:1rem} .text-sm{font-size:.875rem;line-height:1.25rem}
-        .text-base{font-size:1rem;line-height:1.5rem} .text-lg{font-size:1.125rem;line-height:1.75rem}
-        .text-xl{font-size:1.25rem;line-height:1.75rem} .text-2xl{font-size:1.5rem;line-height:2rem}
-        .text-3xl{font-size:1.875rem;line-height:2.25rem} .text-4xl{font-size:2.25rem;line-height:2.5rem}
-        .text-center{text-align:center}
-        .font-bold{font-weight:700} .font-semibold{font-weight:600}
-        .leading-tight{line-height:1.25}
-        .tracking-wide{letter-spacing:.025em} .tracking-widest{letter-spacing:.1em}
-        .uppercase{text-transform:uppercase}
-        .max-w-2xl{max-width:42rem} .max-w-6xl{max-width:72rem} .max-w-md{max-width:28rem} .max-w-1440{max-width:1440px}
-        .rounded-full{border-radius:9999px} .rounded-lg{border-radius:.5rem} .rounded-3xl{border-radius:1.5rem}
-        .bg-transparent{background-color:transparent} .bg-white{background-color:#fff}
-        .object-cover{object-fit:cover}
-        .overflow-hidden{overflow:hidden} .overflow-y-auto{overflow-y:auto}
-        .transition{transition-property:color,background-color,border-color,opacity,box-shadow,transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
-        .transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
-        .transition-colors{transition-property:color,background-color,border-color;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
-        .transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
-        .duration-300{transition-duration:.3s}
-        .fill-white{fill:#fff}
-        .bg-green-500{background-color:#22c55e}
-        .text-white{color:#fff}
-        .bottom-6{bottom:1.5rem} .right-6{right:1.5rem}
-        .gap-2{gap:.5rem}
-        .pl-3{padding-left:.75rem} .pr-4{padding-right:1rem}
-        .py-2\.5{padding-top:.625rem;padding-bottom:.625rem}
-        .wa-float-btn{box-shadow:0 8px 24px rgba(34,197,94,0.4)}
-        .wa-float-btn:hover{box-shadow:0 10px 32px rgba(34,197,94,0.6);transform:scale(1.05)}
-
-        @media (min-width:640px){
-            .sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}
-            .sm\:p-8{padding:2rem}
-        }
-        @media (min-width:768px){
-            .md\:flex{display:flex}
-            .md\:hidden{display:none}
-            .md\:inline-block{display:inline-block}
-            .md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-            .md\:gap-8{gap:2rem}
-            .md\:h-6{height:1.5rem} .md\:w-6{width:1.5rem}
-            .md\:px-10{padding-left:2.5rem;padding-right:2.5rem}
-            .md\:pr-5{padding-right:1.25rem}
-            .md\:py-6{padding-top:1.5rem;padding-bottom:1.5rem}
-            .md\:py-28{padding-top:7rem;padding-bottom:7rem}
-            .md\:text-2xl{font-size:1.5rem;line-height:2rem}
-            .md\:text-3xl{font-size:1.875rem;line-height:2.25rem}
-            .md\:text-4xl{font-size:2.25rem;line-height:2.5rem}
-            .md\:text-5xl{font-size:3rem;line-height:1}
-            .md\:text-base{font-size:1rem;line-height:1.5rem}
-            .md\:text-lg{font-size:1.125rem;line-height:1.75rem}
-        }
-        @media (min-width:1024px){
-            .lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-            .lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-            .lg\:justify-start{justify-content:flex-start}
-            .lg\:mx-0{margin-left:0;margin-right:0}
-            .lg\:text-left{text-align:left}
-        }
-    </style>
-
-    <!-- Tipografías: Space Grotesk (display, carácter técnico), Inter (texto), IBM Plex Mono (etiquetas/código) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-
-    <!-- ============================================================
-         SCHEMA JSON-LD (ProfessionalService + NAP)
-         Completar streetAddress exacta y teléfono si cambia
-         ============================================================ -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Truespot Marketing",
-      "image": "https://www.truespotmarketing.com/assets/og-cover.jpg",
-      "url": "https://www.truespotmarketing.com/",
-      "telephone": "+58-424-6229216",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Maracaibo",
-        "addressRegion": "Zulia",
-        "addressCountry": "VE"
-      },
-      "areaServed": ["Maracaibo", "Venezuela", "Latinoamérica"],
-      "sameAs": [
-        "https://www.youtube.com/@truespotagencia"
-      ],
-      "knowsAbout": ["Automatización de procesos", "Agentes de IA", "WhatsApp API", "Make.com", "n8n"],
-      "description": "Automatización de procesos empresariales con Make, Node.js y agentes de IA, además de diseño web, para negocios en Venezuela y LATAM.",
-      "makesOffer": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatización de procesos con Make y n8n" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agentes de IA y chatbots" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diseño y desarrollo web" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Integraciones a medida en Node.js" } }
-      ]
-    }
-    </script>
-
-    <!-- Schema FAQPage: mismas preguntas del carrusel de FAQ, para optar a fragmentos destacados en Google -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "¿Qué es la automatización de procesos y cómo ayuda a mi negocio?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Es conectar tus herramientas para que las tareas repetitivas —reportes, seguimientos, notificaciones— ocurran solas, sin que nadie las haga a mano."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Necesito conocimientos técnicos para tener un agente de IA?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Nosotros diseñamos, entrenamos y dejamos funcionando el agente; tú solo lo usas desde WhatsApp, tu web o la plataforma que prefieras."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Cuánto tiempo toma implementar una automatización?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Depende de la complejidad, pero la mayoría de los flujos con Make quedan funcionando entre 1 y 3 semanas desde que definimos el proceso."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Trabajan con empresas fuera de Venezuela?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sí, trabajamos de forma remota con negocios en toda LATAM. Toda la implementación se coordina por WhatsApp y videollamada."
-          }
-        }
-      ]
-    }
-    </script>
-
     <style>
         /* ============================================================
            TOKENS DE MARCA — Truespot Marketing
@@ -838,6 +626,219 @@
         .site-footer-new__bottom { background: #240A54; border-top: 1px solid rgba(255,255,255,0.1); padding: 1.25rem 1.5rem; text-align: center; }
         .site-footer-new__bottom p { font-size: 0.75rem; color: rgba(255,255,255,0.6); max-width: 900px; margin: 0 auto; line-height: 1.5; }
     </style>
+
+    <!-- Tipografías: Space Grotesk (display, carácter técnico), Inter (texto), IBM Plex Mono (etiquetas/código) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+    <!-- ============================================================
+         SCHEMA JSON-LD (ProfessionalService + NAP)
+         Completar streetAddress exacta y teléfono si cambia
+         ============================================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Truespot Marketing",
+      "image": "https://www.truespotmarketing.com/assets/og-cover.jpg",
+      "url": "https://www.truespotmarketing.com/",
+      "telephone": "+58-424-6229216",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Maracaibo",
+        "addressRegion": "Zulia",
+        "addressCountry": "VE"
+      },
+      "areaServed": ["Maracaibo", "Venezuela", "Latinoamérica"],
+      "sameAs": [
+        "https://www.youtube.com/@truespotagencia"
+      ],
+      "knowsAbout": ["Automatización de procesos", "Agentes de IA", "WhatsApp API", "Make.com", "n8n"],
+      "description": "Automatización de procesos empresariales con Make, Node.js y agentes de IA, además de diseño web, para negocios en Venezuela y LATAM.",
+      "makesOffer": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatización de procesos con Make y n8n" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agentes de IA y chatbots" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diseño y desarrollo web" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Integraciones a medida en Node.js" } }
+      ]
+    }
+    </script>
+
+    <!-- Schema FAQPage: mismas preguntas del carrusel de FAQ, para optar a fragmentos destacados en Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es la automatización de procesos y cómo ayuda a mi negocio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es conectar tus herramientas para que las tareas repetitivas —reportes, seguimientos, notificaciones— ocurran solas, sin que nadie las haga a mano."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Necesito conocimientos técnicos para tener un agente de IA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Nosotros diseñamos, entrenamos y dejamos funcionando el agente; tú solo lo usas desde WhatsApp, tu web o la plataforma que prefieras."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo toma implementar una automatización?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende de la complejidad, pero la mayoría de los flujos con Make quedan funcionando entre 1 y 3 semanas desde que definimos el proceso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Trabajan con empresas fuera de Venezuela?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, trabajamos de forma remota con negocios en toda LATAM. Toda la implementación se coordina por WhatsApp y videollamada."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style id="tw-utilities">
+        /* ============================================================
+           RESET BASE (equivalente al "Preflight" de Tailwind)
+           Sin esto, los navegadores aplican sus estilos por defecto:
+           links azules subrayados, márgenes de títulos, viñetas de
+           listas, bordes de botones, etc. Esto lo neutraliza, igual
+           que hacía automáticamente el motor de Tailwind.
+           ============================================================ */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
+        body { margin: 0; }
+        h1, h2, h3, h4, h5, h6, p { margin: 0; font-size: inherit; font-weight: inherit; }
+        ul, ol { list-style: none; margin: 0; padding: 0; }
+        a { color: inherit; text-decoration: none; }
+        button { font: inherit; color: inherit; background: none; border: none; padding: 0; cursor: pointer; }
+        img, svg, video { display: block; max-width: 100%; }
+
+        /* Blindaje extra del menú móvil: oculto por defecto en pantallas
+           pequeñas pase lo que pase, visible únicamente cuando el botón
+           hamburguesa le quita la clase .hidden vía JavaScript. */
+        #mobile-menu.hidden { display: none !important; }
+        @media (min-width: 768px) {
+            #mobile-menu { display: none !important; }
+        }
+
+        /* ============================================================
+           UTILIDADES CSS ESTÁTICAS — reemplazo del motor Tailwind (JIT)
+           Generadas a mano cubriendo únicamente las clases usadas en esta
+           página. Elimina la ejecución de JS en tiempo de carga y la
+           advertencia de "no usar en producción" del CDN de Tailwind.
+           ============================================================ */
+        .hidden{display:none}
+        .flex{display:flex}
+        .inline-block{display:inline-block}
+        .grid{display:grid}
+        .flex-col{flex-direction:column}
+        .flex-wrap{flex-wrap:wrap}
+        .items-center{align-items:center}
+        .justify-between{justify-content:space-between}
+        .justify-center{justify-content:center}
+        .grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+        .gap-1{gap:.25rem} .gap-3{gap:.75rem} .gap-4{gap:1rem} .gap-5{gap:1.25rem}
+        .gap-6{gap:1.5rem} .gap-10{gap:2.5rem} .gap-12{gap:3rem} .gap-14{gap:3.5rem}
+        .fixed{position:fixed} .absolute{position:absolute} .relative{position:relative}
+        .inset-0{inset:0} .inset-x-0{left:0;right:0}
+        .top-0{top:0} .top-full{top:100%}
+        .left-1\/2{left:50%}
+        .z-0{z-index:0} .z-10{z-index:10} .z-30{z-index:30} .z-40{z-index:40}
+        .z-a1{z-index:1} .z-a2{z-index:2} .z-a3{z-index:3}
+        .-translate-x-1\/2{transform:translateX(-50%)}
+        .translate-y-2{transform:translateY(.5rem)}
+        .invisible{visibility:hidden}
+        .opacity-0{opacity:0}
+        .group:hover .group-hover\:opacity-100{opacity:1}
+        .group:hover .group-hover\:visible{visibility:visible}
+        .group:hover .group-hover\:translate-y-0{transform:translateY(0)}
+        .group:hover .group-hover\:rotate-180{transform:rotate(180deg)}
+        .w-3{width:.75rem} .w-5{width:1.25rem} .w-8{width:2rem} .w-64{width:16rem} .w-full{width:100%}
+        .h-3{height:.75rem} .h-5{height:1.25rem} .h-8{height:2rem} .h-full{height:100%}
+        .min-h-screen{min-height:100vh} .max-h-screen{max-height:100vh}
+        .mb-4{margin-bottom:1rem} .mb-5{margin-bottom:1.25rem} .mb-6{margin-bottom:1.5rem}
+        .mb-8{margin-bottom:2rem} .mb-10{margin-bottom:2.5rem} .mb-12{margin-bottom:3rem} .mb-14{margin-bottom:3.5rem}
+        .mt-0\.5{margin-top:.125rem} .mt-2{margin-top:.5rem} .mt-3{margin-top:.75rem} .mt-10{margin-top:2.5rem}
+        .-mt-2{margin-top:-.5rem}
+        .mx-auto{margin-left:auto;margin-right:auto}
+        .p-2{padding:.5rem} .p-6{padding:1.5rem}
+        .px-4{padding-left:1rem;padding-right:1rem} .px-6{padding-left:1.5rem;padding-right:1.5rem}
+        .py-1\.5{padding-top:.375rem;padding-bottom:.375rem} .py-2{padding-top:.5rem;padding-bottom:.5rem}
+        .py-4{padding-top:1rem;padding-bottom:1rem} .py-20{padding-top:5rem;padding-bottom:5rem}
+        .pt-3{padding-top:.75rem} .pt-20{padding-top:5rem} .pt-32{padding-top:8rem}
+        .pb-8{padding-bottom:2rem} .pb-16{padding-bottom:4rem}
+        .text-xs{font-size:.75rem;line-height:1rem} .text-sm{font-size:.875rem;line-height:1.25rem}
+        .text-base{font-size:1rem;line-height:1.5rem} .text-lg{font-size:1.125rem;line-height:1.75rem}
+        .text-xl{font-size:1.25rem;line-height:1.75rem} .text-2xl{font-size:1.5rem;line-height:2rem}
+        .text-3xl{font-size:1.875rem;line-height:2.25rem} .text-4xl{font-size:2.25rem;line-height:2.5rem}
+        .text-center{text-align:center}
+        .font-bold{font-weight:700} .font-semibold{font-weight:600}
+        .leading-tight{line-height:1.25}
+        .tracking-wide{letter-spacing:.025em} .tracking-widest{letter-spacing:.1em}
+        .uppercase{text-transform:uppercase}
+        .max-w-2xl{max-width:42rem} .max-w-6xl{max-width:72rem} .max-w-md{max-width:28rem} .max-w-1440{max-width:1440px}
+        .rounded-full{border-radius:9999px} .rounded-lg{border-radius:.5rem} .rounded-3xl{border-radius:1.5rem}
+        .bg-transparent{background-color:transparent} .bg-white{background-color:#fff}
+        .object-cover{object-fit:cover}
+        .overflow-hidden{overflow:hidden} .overflow-y-auto{overflow-y:auto}
+        .transition{transition-property:color,background-color,border-color,opacity,box-shadow,transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+        .transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+        .transition-colors{transition-property:color,background-color,border-color;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+        .transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+        .duration-300{transition-duration:.3s}
+        .fill-white{fill:#fff}
+        .bg-green-500{background-color:#22c55e}
+        .text-white{color:#fff}
+        .bottom-6{bottom:1.5rem} .right-6{right:1.5rem}
+        .gap-2{gap:.5rem}
+        .pl-3{padding-left:.75rem} .pr-4{padding-right:1rem}
+        .py-2\.5{padding-top:.625rem;padding-bottom:.625rem}
+        .wa-float-btn{box-shadow:0 8px 24px rgba(34,197,94,0.4)}
+        .wa-float-btn:hover{box-shadow:0 10px 32px rgba(34,197,94,0.6);transform:scale(1.05)}
+
+        @media (min-width:640px){
+            .sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}
+            .sm\:p-8{padding:2rem}
+        }
+        @media (min-width:768px){
+            .md\:flex{display:flex}
+            .md\:hidden{display:none}
+            .md\:block{display:block}
+            .md\:inline-block{display:inline-block}
+            .md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+            .md\:gap-8{gap:2rem}
+            .md\:h-6{height:1.5rem} .md\:w-6{width:1.5rem}
+            .md\:px-10{padding-left:2.5rem;padding-right:2.5rem}
+            .md\:pr-5{padding-right:1.25rem}
+            .md\:py-6{padding-top:1.5rem;padding-bottom:1.5rem}
+            .md\:py-28{padding-top:7rem;padding-bottom:7rem}
+            .md\:text-2xl{font-size:1.5rem;line-height:2rem}
+            .md\:text-3xl{font-size:1.875rem;line-height:2.25rem}
+            .md\:text-4xl{font-size:2.25rem;line-height:2.5rem}
+            .md\:text-5xl{font-size:3rem;line-height:1}
+            .md\:text-base{font-size:1rem;line-height:1.5rem}
+            .md\:text-lg{font-size:1.125rem;line-height:1.75rem}
+        }
+        @media (min-width:1024px){
+            .lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+            .lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+            .lg\:justify-start{justify-content:flex-start}
+            .lg\:mx-0{margin-left:0;margin-right:0}
+            .lg\:text-left{text-align:left}
+        }
+    </style>
 </head>
 <body>
 
@@ -910,21 +911,37 @@
          ============================================================ -->
     <main id="inicio" class="min-h-screen flex items-center px-6 pt-32 pb-16 md:px-10 relative overflow-hidden">
 
-        <!-- Video de fondo. Debe estar en la misma carpeta que index.html, con este nombre exacto.
-             preload="none": no descarga nada del video hasta que el navegador decide reproducirlo
-             (autoplay+muted lo dispara igual, pero sin bloquear el primer pintado).
-             poster: imagen ligera que se ve mientras el video carga — sube un JPG/WEBP
-             liviano (una captura del video) y llámalo fondo-poster.jpg junto a index.html. -->
+        <!-- Fondo en móvil: imagen estática ligera, sin costo de video ni de CPU.
+             Sube un JPG/WEBP liviano (una captura del video) y llámalo fondo-poster.jpg
+             junto a index.html. Se muestra siempre en pantallas <768px. -->
+        <img src="fondo-poster.jpg" alt="" aria-hidden="true"
+             class="absolute inset-0 w-full h-full object-cover z-0 md:hidden">
+
+        <!-- Video de fondo: solo en escritorio (≥768px). En móvil no se descarga ni se
+             reproduce nada — se inyecta el <source> por JS únicamente si el ancho de
+             pantalla es de escritorio, así el navegador ni siquiera pide el archivo en celulares. -->
         <video
             id="video-fondo"
-            autoplay loop muted playsinline
+            loop muted playsinline
             preload="none"
             poster="fondo-poster.jpg"
-            class="absolute inset-0 w-full h-full object-cover z-0"
+            class="hidden md:block absolute inset-0 w-full h-full object-cover z-0"
             onerror="document.getElementById('video-error').classList.remove('hidden'); document.getElementById('animated-bg').classList.remove('hidden');">
-            <source src="FONDO.mp4" type="video/mp4">
         </video>
         <script>
+            // El video de fondo SOLO se carga y reproduce en pantallas de escritorio.
+            // En móvil se queda sin <source>, así que el navegador nunca descarga el .mp4.
+            if (window.matchMedia('(min-width: 768px)').matches) {
+                const videoEl = document.getElementById('video-fondo');
+                const source = document.createElement('source');
+                source.src = 'FONDO.mp4';
+                source.type = 'video/mp4';
+                videoEl.appendChild(source);
+                videoEl.setAttribute('autoplay', '');
+                videoEl.load();
+                videoEl.play().catch(() => {});
+            }
+
             // Diagnóstico temporal: muestra en consola por qué falla el video
             // (quitar este bloque una vez confirmes que el video carga bien)
             document.getElementById('video-fondo').addEventListener('error', (e) => {
