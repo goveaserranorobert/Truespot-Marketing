@@ -932,10 +932,19 @@
                 console.error('Códigos: 1=abortado 2=red 3=decodificación (códec no soportado) 4=formato/ruta no soportada');
             });
 
-            // Arranca el video después de que la página termine de cargar,
-            // para no competir con el pintado inicial (mejora LCP y TBT).
-            window.addEventListener('load', () => {
+            // Arranca el video cuando el navegador queda libre de trabajo urgente
+            // (requestIdleCallback), no apenas termina de cargar. Así el hilo
+            // principal ya está disponible para el usuario antes de ponerse a
+            // decodificar el video, que es la tarea más pesada de la página.
+            function iniciarVideo() {
                 videoFondo.play().catch(() => {});
+            }
+            window.addEventListener('load', () => {
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(iniciarVideo, { timeout: 2000 });
+                } else {
+                    setTimeout(iniciarVideo, 800);
+                }
             });
         </script>
 
