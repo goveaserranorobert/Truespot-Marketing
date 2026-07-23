@@ -911,37 +911,18 @@
          ============================================================ -->
     <main id="inicio" class="min-h-screen flex items-center px-6 pt-32 pb-16 md:px-10 relative overflow-hidden">
 
-        <!-- Fondo en móvil: imagen estática ligera, sin costo de video ni de CPU.
-             Sube un JPG/WEBP liviano (una captura del video) y llámalo fondo-poster.jpg
-             junto a index.html. Se muestra siempre en pantallas <768px. -->
-        <img src="fondo-poster.jpg" alt="" aria-hidden="true"
-             class="absolute inset-0 w-full h-full object-cover z-0 md:hidden">
-
-        <!-- Video de fondo: solo en escritorio (≥768px). En móvil no se descarga ni se
-             reproduce nada — se inyecta el <source> por JS únicamente si el ancho de
-             pantalla es de escritorio, así el navegador ni siquiera pide el archivo en celulares. -->
+        <!-- Video de fondo único, en todas las pantallas.
+             preload="none": no descarga nada hasta que el navegador decide reproducirlo
+             (autoplay + muted lo dispara igual, sin bloquear el primer pintado). -->
         <video
             id="video-fondo"
-            loop muted playsinline
+            autoplay loop muted playsinline
             preload="none"
-            poster="fondo-poster.jpg"
-            class="hidden md:block absolute inset-0 w-full h-full object-cover z-0"
+            class="absolute inset-0 w-full h-full object-cover z-0"
             onerror="document.getElementById('video-error').classList.remove('hidden'); document.getElementById('animated-bg').classList.remove('hidden');">
+            <source src="FONDO.mp4" type="video/mp4">
         </video>
         <script>
-            // El video de fondo SOLO se carga y reproduce en pantallas de escritorio.
-            // En móvil se queda sin <source>, así que el navegador nunca descarga el .mp4.
-            if (window.matchMedia('(min-width: 768px)').matches) {
-                const videoEl = document.getElementById('video-fondo');
-                const source = document.createElement('source');
-                source.src = 'FONDO.mp4';
-                source.type = 'video/mp4';
-                videoEl.appendChild(source);
-                videoEl.setAttribute('autoplay', '');
-                videoEl.load();
-                videoEl.play().catch(() => {});
-            }
-
             // Diagnóstico temporal: muestra en consola por qué falla el video
             // (quitar este bloque una vez confirmes que el video carga bien)
             document.getElementById('video-fondo').addEventListener('error', (e) => {
