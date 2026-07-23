@@ -182,22 +182,10 @@
             stroke: var(--ts-purple-300);
             stroke-width: 2;
             stroke-dasharray: 6 8;
-            will-change: opacity;
-            animation: flowPulse2 2.6s ease-in-out 4;
-        }
-        @keyframes flowPulse2 {
-            0%, 100% { opacity: 0.45; }
-            50% { opacity: 1; }
+            opacity: 0.8;
         }
         .flow-dot {
-            transform-box: fill-box;
-            transform-origin: center;
-            will-change: transform, opacity;
-            animation: flowPulse 2.4s ease-in-out 4;
-        }
-        @keyframes flowPulse {
-            0%, 100% { transform: scale(1); opacity: 0.55; }
-            50% { transform: scale(1.5); opacity: 1; }
+            opacity: 0.9;
         }
         .flow-node {
             fill: #FFFFFF;
