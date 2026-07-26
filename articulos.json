@@ -1,0 +1,51 @@
+[
+  {
+    "id": "make-vs-n8n-cual-elegir",
+    "titulo": "Make vs n8n: ¿cuál plataforma de automatización elegir en 2026?",
+    "resumen": "Comparamos las dos herramientas de automatización más usadas por agencias y pymes, y cuándo conviene cada una.",
+    "categoria": "Automatización",
+    "fecha": "2026-07-08",
+    "fecha_texto": "8 de julio, 2026",
+    "imagen": "servicio1.png",
+    "imagen_alt": "Comparativa entre Make y n8n para automatización de procesos",
+    "contenido": [
+      "Make (antes Integromat) y n8n son las dos plataformas más usadas hoy para automatizar procesos de negocio sin escribir código complejo.",
+      "Make destaca por su interfaz visual muy intuitiva y su enorme catálogo de integraciones ya listas para usar (WhatsApp, Google Sheets, CRMs, etc.). Es ideal si quieres resultados rápidos sin preocuparte por infraestructura.",
+      "n8n, en cambio, es de código abierto y se puede auto-alojar en tu propio servidor, lo que da más control y puede salir más económico a largo plazo si tienes volúmenes altos de automatizaciones. También permite escribir código JavaScript personalizado dentro de los flujos, algo que Make limita más.",
+      "En Truespot trabajamos con ambas plataformas y elegimos según el caso: Make para necesidades rápidas y estándar, n8n cuando el cliente necesita control total, volumen alto o integraciones muy específicas."
+    ]
+  },
+  {
+    "id": "senales-tu-empresa-necesita-agente-ia",
+    "titulo": "5 señales de que tu empresa necesita un agente de IA",
+    "resumen": "Si te identificas con al menos 2 de estas señales, probablemente estés perdiendo ventas o tiempo que un agente de IA podría resolver.",
+    "categoria": "Agentes de IA",
+    "fecha": "2026-07-16",
+    "fecha_texto": "16 de julio, 2026",
+    "imagen": "servicio2.png",
+    "imagen_alt": "Señales de que una empresa necesita un agente de inteligencia artificial",
+    "contenido": [
+      "1. Respondes los mismos mensajes de WhatsApp una y otra vez. Si el 80% de tus consultas son sobre precios, horarios o disponibilidad, un agente de IA puede responderlas al instante, 24/7.",
+      "2. Pierdes leads por no responder a tiempo. Un cliente que espera más de 10 minutos por respuesta suele buscar en otro lado. Un agente de IA responde en segundos.",
+      "3. Tu equipo pasa horas calificando leads manualmente. Un agente puede hacer las preguntas clave automáticamente y solo pasarte a los leads que realmente están listos para comprar.",
+      "4. No tienes forma de atender fuera de horario laboral. Muchas ventas se pierden en la madrugada o fines de semana simplemente porque nadie contestó.",
+      "5. Tu proceso de agendar citas depende de ida y vuelta manual por WhatsApp. Un agente conectado a tu calendario puede agendar directamente, sin intervención humana."
+    ]
+  },
+  {
+    "id": "automatizacion-procesos-openai-gpt4",
+    "titulo": "Automatización de procesos con OpenAI y GPT-4: guía práctica",
+    "resumen": "Cómo combinar Make o n8n con la API de OpenAI para crear flujos que realmente piensan, no solo ejecutan pasos fijos.",
+    "categoria": "IA",
+    "fecha": "2026-07-22",
+    "fecha_texto": "22 de julio, 2026",
+    "imagen": "servicio4.png",
+    "imagen_alt": "Automatización de procesos empresariales integrando OpenAI y GPT-4",
+    "contenido": [
+      "Una automatización tradicional sigue reglas fijas: 'si pasa X, hacer Y'. El problema es que el mundo real no siempre encaja en reglas rígidas.",
+      "Al integrar GPT-4 dentro de un flujo de Make o n8n, el paso de 'decisión' deja de ser una regla fija y pasa a ser un modelo que entiende contexto: puede leer un mensaje de un cliente, entender la intención real (aunque esté mal escrito o sea ambiguo) y decidir la siguiente acción correcta.",
+      "Ejemplos reales: clasificar automáticamente un correo entrante como 'reclamo', 'venta' o 'soporte' y enrutarlo al equipo correcto; generar respuestas personalizadas a reseñas de clientes; resumir llamadas o reuniones largas en 3 líneas accionables.",
+      "La clave está en no depender 100% de la IA para decisiones críticas: en Truespot siempre dejamos puntos de revisión humana en los flujos donde el costo de un error es alto (por ejemplo, pagos o cancelaciones), y dejamos que la IA maneje sola las tareas repetitivas de bajo riesgo."
+    ]
+  }
+]

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es-VE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title id="page-title">Artículo | Truespot Marketing</title>
+    <meta id="page-description" name="description" content="Guías y artículos sobre automatización de procesos y agentes de IA para negocios en Venezuela y LATAM.">
+    <meta name="robots" content="index, follow">
+    <link id="page-canonical" rel="canonical" href="https://truespotmarketing.com/articulo.html">
+
+    <meta id="og-title" property="og:type" content="article">
+    <meta property="og:site_name" content="Truespot Marketing">
+
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet"></noscript>
+
+    <style>
+        :root {
+            --ts-bg: #FFFFFF;
+            --ts-bg-soft: #F7F5FC;
+            --ts-purple-900: #2E1065;
+            --ts-purple-700: #5B21B6;
+            --ts-purple-600: #7C3AED;
+            --ts-purple-300: #C4B5FD;
+            --ts-purple-100: #EDE9FE;
+            --ts-ink: #1B1330;
+            --ts-ink-soft: #5B5568;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; overflow-x: hidden; background: var(--ts-bg); color: var(--ts-ink); font-family: "Inter", sans-serif; }
+        a { text-decoration: none; }
+        h1, h2 { font-family: "Space Grotesk", sans-serif; margin: 0; }
+
+        header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 1.5rem;
+            background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--ts-purple-100);
+        }
+        header .logo { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--ts-ink); }
+        header .logo span { color: var(--ts-purple-600); }
+        header .back { font-size: 0.85rem; font-weight: 700; color: var(--ts-purple-700); }
+
+        .article-hero { padding: 8rem 1.5rem 2rem; background: var(--ts-bg-soft); }
+        .article-hero__inner { max-width: 760px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--ts-purple-700); font-weight: 700; font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .article-hero__meta {
+            display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem;
+            text-transform: uppercase; letter-spacing: 0.05em; color: var(--ts-purple-700);
+            background: var(--ts-purple-100); border: 1px solid var(--ts-purple-300);
+            padding: 0.4rem 0.9rem; border-radius: 999px; margin-bottom: 1.25rem;
+        }
+        .article-hero__title { font-size: 1.75rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.75rem; }
+        @media (min-width: 768px) { .article-hero__title { font-size: 2.4rem; } }
+        .article-hero__date { color: var(--ts-ink-soft); font-size: 0.9rem; }
+
+        .article-image-wrap { max-width: 760px; margin: -1.5rem auto 0; padding: 0 1.5rem; }
+        .article-image { width: 100%; height: auto; border-radius: 1rem; border: 1px solid var(--ts-purple-100); box-shadow: 0 20px 50px rgba(46,16,101,0.16); display: block; }
+
+        .article-body { max-width: 700px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+        .article-body p { color: var(--ts-ink-soft); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; }
+        .article-body p a { color: var(--ts-purple-700); font-weight: 700; text-decoration: underline; }
+        .article-body p strong { color: var(--ts-ink); }
+
+        .article-cta {
+            background: var(--ts-bg-soft); border: 1px solid var(--ts-purple-100);
+            border-radius: 1rem; padding: 1.75rem; text-align: center; margin-top: 2.5rem;
+        }
+        .article-cta p { color: var(--ts-ink-soft); margin-bottom: 1.25rem; }
+        .article-cta a {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--ts-purple-700); color: #fff; font-weight: 700;
+            padding: 0.85rem 1.75rem; border-radius: 999px;
+        }
+
+        .article-nav-links {
+            display: flex; flex-wrap: wrap; gap: 1rem;
+            margin-top: 2.5rem; padding-top: 1.5rem;
+            border-top: 1px solid var(--ts-purple-100);
+        }
+        .article-nav-links a {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-weight: 700; font-size: 0.9rem; color: var(--ts-purple-700);
+            border: 1.5px solid var(--ts-purple-300); border-radius: 999px;
+            padding: 0.6rem 1.25rem;
+        }
+        .article-nav-links a:hover { background: var(--ts-purple-100); }
+
+        .related { background: var(--ts-bg-soft); padding: 3rem 1.5rem 4rem; }
+        .related__inner { max-width: 1152px; margin: 0 auto; }
+        .related h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 1.5rem; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+        @media (min-width: 900px) { .related-grid { grid-template-columns: repeat(3, 1fr); } }
+        .blog-card {
+            background: #FFFFFF; border: 1px solid var(--ts-purple-100); border-radius: 1rem;
+            padding: 1.25rem; display: flex; flex-direction: column;
+            box-shadow: 0 8px 24px rgba(46,16,101,0.06);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .blog-card:hover { transform: translateY(-5px); border-color: var(--ts-purple-300); }
+        .blog-card__image-wrap { overflow: hidden; border-radius: 0.75rem; aspect-ratio: 3 / 2; margin-bottom: 1rem; }
+        .blog-card__image { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .blog-card__meta { font-family: "IBM Plex Mono", monospace; font-size: 0.68rem; text-transform: uppercase; color: var(--ts-purple-600); margin-bottom: 0.4rem; }
+        .blog-card__title { font-weight: 700; font-size: 0.98rem; line-height: 1.35; margin-bottom: 0.5rem; }
+        .blog-card__link { color: var(--ts-purple-700); font-weight: 700; font-size: 0.85rem; margin-top: auto; }
+
+        footer { background: var(--ts-purple-900); color: #EDE9FE; padding: 2.5rem 1.5rem; text-align: center; }
+        footer a { color: #fff; font-weight: 700; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">TRUESPOT<span>MARKETING</span></a>
+        <a href="blog.html" class="back">← Ver todos los artículos</a>
+    </header>
+
+    <main>
+        <div class="article-hero">
+            <div class="article-hero__inner">
+                <a href="blog.html" class="back-link">← Volver al blog</a>
+                <span id="article-category" class="article-hero__meta">Cargando…</span>
+                <h1 id="article-title" class="article-hero__title">Cargando artículo…</h1>
+                <p id="article-date" class="article-hero__date"></p>
+            </div>
+        </div>
+
+        <div class="article-image-wrap">
+            <img id="article-image" class="article-image" src="" alt="">
+        </div>
+
+        <div class="article-body">
+            <div id="article-content"></div>
+
+            <div class="article-cta">
+                <p>¿Quieres automatizar procesos como estos en tu negocio?</p>
+                <a href="https://wa.me/584246229216" target="_blank" rel="noopener">Hablar por WhatsApp →</a>
+            </div>
+
+            <div class="article-nav-links">
+                <a href="blog.html">← Ir a todos los artículos</a>
+                <a href="index.html">🏠 Ir al inicio</a>
+            </div>
+        </div>
+    </main>
+
+    <section class="related">
+        <div class="related__inner">
+            <h2>También te puede interesar</h2>
+            <div id="related-grid" class="related-grid"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Truespot Marketing. <a href="index.html">Volver al inicio</a></p>
+    </footer>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const articleId = params.get('id');
+
+        fetch('articulos.json')
+            .then(res => res.json())
+            .then(articulos => {
+                const articulo = articulos.find(a => a.id === articleId);
+
+                if (!articulo) {
+                    document.getElementById('article-title').textContent = 'Artículo no encontrado';
+                    document.getElementById('article-content').innerHTML = '<p>El artículo que buscas no existe o fue movido. <a href="blog.html" style="color: var(--ts-purple-700); font-weight:700;">Ver todos los artículos →</a></p>';
+                    return;
+                }
+
+                document.title = articulo.titulo + ' | Truespot Marketing';
+                document.getElementById('page-title').textContent = articulo.titulo + ' | Truespot Marketing';
+                document.getElementById('page-description').setAttribute('content', articulo.resumen);
+                document.getElementById('page-canonical').setAttribute('href', 'https://truespotmarketing.com/articulo.html?id=' + articulo.id);
+                document.getElementById('og-title').setAttribute('content', articulo.titulo);
+
+                document.getElementById('article-category').textContent = articulo.categoria + ' · ' + articulo.fecha_texto;
+                document.getElementById('article-title').textContent = articulo.titulo;
+                document.getElementById('article-date').textContent = 'Publicado el ' + articulo.fecha_texto;
+                document.getElementById('article-image').src = articulo.imagen;
+                document.getElementById('article-image').alt = articulo.imagen_alt;
+
+                const contentDiv = document.getElementById('article-content');
+                contentDiv.innerHTML = '';
+                articulo.contenido.forEach(parrafo => {
+                    const p = document.createElement('p');
+                    p.innerHTML = parrafo; // admite HTML simple: <a href="...">texto</a>, <strong>texto</strong>
+                    contentDiv.appendChild(p);
+                });
+
+                // Artículos relacionados: los 3 más recientes que no sean el actual
+                const relacionados = articulos
+                    .filter(a => a.id !== articulo.id)
+                    .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
+                    .slice(0, 3);
+
+                document.getElementById('related-grid').innerHTML = relacionados.map(a => `
+                    <article class="blog-card">
+                        <div class="blog-card__image-wrap">
+                            <img src="${a.imagen}" alt="${a.imagen_alt}" width="500" height="333" loading="lazy" decoding="async" class="blog-card__image">
+                        </div>
+                        <span class="blog-card__meta">${a.categoria} • ${a.fecha_texto}</span>
+                        <h3 class="blog-card__title">${a.titulo}</h3>
+                        <a href="articulo.html?id=${a.id}" class="blog-card__link">Leer artículo →</a>
+                    </article>
+                `).join('');
+
+                const schema = document.createElement('script');
+                schema.type = 'application/ld+json';
+                schema.textContent = JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": articulo.titulo,
+                    "description": articulo.resumen,
+                    "image": "https://truespotmarketing.com/" + articulo.imagen,
+                    "datePublished": articulo.fecha,
+                    "author": { "@type": "Organization", "name": "Truespot Marketing" },
+                    "publisher": { "@type": "Organization", "name": "Truespot Marketing" }
+                });
+                document.head.appendChild(schema);
+            })
+            .catch(() => {
+                document.getElementById('article-title').textContent = 'Error al cargar el artículo';
+            });
+    </script>
+</body>
+</html>

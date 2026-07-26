@@ -866,6 +866,7 @@
             <a href="#nosotros" class="nav-link text-base tracking-wide transition duration-300">Nosotros</a>
             <a href="#preguntas" class="nav-link text-base tracking-wide transition duration-300">Preguntas</a>
             <a href="#recursos" class="nav-link text-base tracking-wide transition duration-300">Recursos</a>
+            <a href="blog.html" class="nav-link text-base tracking-wide transition duration-300">Blog</a>
         </nav>
 
         <a href="https://wa.me/584246229216" rel="nofollow" class="hidden md:inline-block btn-primary">Hablar por WhatsApp</a>
@@ -890,6 +891,7 @@
         <a href="#nosotros" class="text-lg font-display font-bold" style="color: var(--ts-purple-700);">NOSOTROS</a>
         <a href="#preguntas" class="text-lg font-display font-bold" style="color: var(--ts-purple-700);">PREGUNTAS</a>
         <a href="#recursos" class="text-lg font-display font-bold" style="color: var(--ts-purple-700);">RECURSOS</a>
+        <a href="blog.html" class="text-lg font-display font-bold" style="color: var(--ts-purple-700);">BLOG</a>
         <a href="https://wa.me/584246229216" rel="nofollow" class="w-full text-center btn-primary">Hablar por WhatsApp</a>
     </div>
 
@@ -1311,6 +1313,49 @@
 
         <div class="text-center mt-10">
             <a href="https://www.youtube.com/@truespotagencia" target="_blank" rel="noopener" class="faq-more-link">Ver el canal completo →</a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         BLOG — artículos de texto, cargados dinámicamente desde
+         articulos.json. Ideal para SEO: contenido nuevo cada semana
+         sin tener que tocar este HTML.
+         ============================================================ -->
+    <section id="blog" class="px-6 py-20 md:py-28" style="background: var(--ts-bg-soft);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="font-mono-brand text-xs tracking-widest uppercase" style="color: var(--ts-purple-600);">Blog</span>
+                <h2 class="text-2xl md:text-4xl font-display font-bold mt-2" style="color: var(--ts-ink);">Guías de automatización e IA</h2>
+                <p class="mt-3" style="color: var(--ts-ink-soft);">Artículos nuevos cada semana sobre Make, n8n, agentes de IA y automatización de procesos.</p>
+            </div>
+
+            <div id="home-blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Los 3 artículos más recientes se cargan automáticamente desde articulos.json -->
+            </div>
+            <script>
+                fetch('articulos.json')
+                    .then(res => res.json())
+                    .then(articulos => {
+                        articulos.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+                        const ultimas = articulos.slice(0, 4);
+                        const grid = document.getElementById('home-blog-grid');
+                        grid.innerHTML = ultimas.map(a => `
+                            <article class="blog-card">
+                                <div class="blog-card__image-wrap">
+                                    <img src="${a.imagen}" alt="${a.imagen_alt}" width="500" height="333" loading="lazy" decoding="async" class="blog-card__image">
+                                </div>
+                                <span class="blog-card__meta">${a.categoria} • ${a.fecha_texto}</span>
+                                <h3 class="blog-card__title">${a.titulo}</h3>
+                                <p class="blog-card__text">${a.resumen}</p>
+                                <a href="articulo.html?id=${a.id}" class="blog-card__link">Leer artículo →</a>
+                            </article>
+                        `).join('');
+                    });
+            </script>
+
+            <div class="text-center mt-10">
+                <a href="blog.html" class="faq-more-link">Ver todos los artículos →</a>
+            </div>
         </div>
     </section>
 

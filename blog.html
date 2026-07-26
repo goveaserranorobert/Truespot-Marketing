@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es-VE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Automatización e IA | Truespot Marketing</title>
+    <meta name="description" content="Guías, comparativas y artículos sobre automatización de procesos y agentes de IA para negocios en Venezuela y LATAM. Actualizado cada semana.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://truespotmarketing.com/blog.html">
+
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet"></noscript>
+
+    <style>
+        :root {
+            --ts-bg: #FFFFFF;
+            --ts-bg-soft: #F7F5FC;
+            --ts-purple-900: #2E1065;
+            --ts-purple-700: #5B21B6;
+            --ts-purple-600: #7C3AED;
+            --ts-purple-300: #C4B5FD;
+            --ts-purple-100: #EDE9FE;
+            --ts-ink: #1B1330;
+            --ts-ink-soft: #5B5568;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; overflow-x: hidden; background: var(--ts-bg); color: var(--ts-ink); font-family: "Inter", sans-serif; }
+        a { text-decoration: none; }
+        h1, h2, h3 { font-family: "Space Grotesk", sans-serif; margin: 0; }
+
+        header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 1.5rem;
+            background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--ts-purple-100);
+        }
+        header .logo { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--ts-ink); }
+        header .logo span { color: var(--ts-purple-600); }
+        header .back { font-size: 0.85rem; font-weight: 700; color: var(--ts-purple-700); }
+
+        .page-hero { padding: 8rem 1.5rem 3rem; background: var(--ts-bg-soft); text-align: center; }
+        .page-hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        @media (min-width: 768px) { .page-hero h1 { font-size: 2.6rem; } }
+        .page-hero p { color: var(--ts-ink-soft); max-width: 42rem; margin: 0 auto; }
+
+        .blog-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 1152px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+        @media (min-width: 900px) { .blog-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .blog-card {
+            background: #FFFFFF; border: 1px solid var(--ts-purple-100); border-radius: 1rem;
+            padding: 1.5rem; display: flex; flex-direction: column;
+            box-shadow: 0 8px 24px rgba(46,16,101,0.06);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .blog-card:hover { transform: translateY(-5px); border-color: var(--ts-purple-300); box-shadow: 0 16px 34px rgba(91,33,182,0.16); }
+        .blog-card__image-wrap { overflow: hidden; border-radius: 0.75rem; aspect-ratio: 3 / 2; margin-bottom: 1rem; }
+        .blog-card__image { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
+        .blog-card:hover .blog-card__image { transform: scale(1.06); }
+        .blog-card__meta { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ts-purple-600); margin-bottom: 0.5rem; }
+        .blog-card__title { color: var(--ts-ink); font-weight: 700; font-size: 1.05rem; line-height: 1.35; margin-bottom: 0.6rem; }
+        .blog-card__text { color: var(--ts-ink-soft); font-size: 0.875rem; line-height: 1.5; margin-bottom: 1.25rem; flex-grow: 1; }
+        .blog-card__link { color: var(--ts-purple-700); font-weight: 700; font-size: 0.85rem; }
+        .blog-card__link:hover { color: var(--ts-purple-600); }
+
+        footer { background: var(--ts-purple-900); color: #EDE9FE; padding: 2.5rem 1.5rem; text-align: center; }
+        footer a { color: #fff; font-weight: 700; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">TRUESPOT<span>MARKETING</span></a>
+        <a href="index.html" class="back">← Volver al inicio</a>
+    </header>
+
+    <div class="page-hero">
+        <h1>Blog de Automatización e IA</h1>
+        <p>Guías prácticas sobre Make, n8n, agentes de IA y automatización de procesos para negocios en Venezuela y LATAM. Actualizamos cada semana.</p>
+    </div>
+
+    <!-- Cuando quieras activar filtros por categoría, aquí es donde van los botones/tabs.
+         Cada tarjeta ya trae el atributo data-categoria listo para usarse con JS
+         (ej: mostrar solo las tarjetas cuyo data-categoria coincida con el filtro activo). -->
+    <div id="blog-grid" class="blog-grid"></div>
+
+    <footer>
+        <p>© 2026 Truespot Marketing. <a href="index.html">Volver al inicio</a></p>
+    </footer>
+
+    <script>
+        fetch('articulos.json')
+            .then(res => res.json())
+            .then(articulos => {
+                articulos.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+                const grid = document.getElementById('blog-grid');
+                grid.innerHTML = articulos.map(a => `
+                    <article class="blog-card" data-categoria="${a.categoria}">
+                        <div class="blog-card__image-wrap">
+                            <img src="${a.imagen}" alt="${a.imagen_alt}" width="500" height="333" loading="lazy" decoding="async" class="blog-card__image">
+                        </div>
+                        <span class="blog-card__meta">${a.categoria} • ${a.fecha_texto}</span>
+                        <h2 class="blog-card__title">${a.titulo}</h2>
+                        <p class="blog-card__text">${a.resumen}</p>
+                        <a href="articulo.html?id=${a.id}" class="blog-card__link">Leer artículo →</a>
+                    </article>
+                `).join('');
+            });
+    </script>
+</body>
+</html>
